@@ -14,7 +14,6 @@ class Menu extends Component{
 
     state = {
         width: window.innerWidth,
-        menuElements: "",
         menuActive: false,
         buttonContent: this.openMenuButton,
         sections: [
@@ -25,7 +24,8 @@ class Menu extends Component{
             {id: 4 , name: "Rejestracja", content: "", active: false},
             {id: 5 , name: "Patroni i sponsorzy", content: "", active: false},
             {id: 6 , name: "Kontakt", content: "", active: false}
-        ]
+        ],
+        menuElements:''
 
     }
 
@@ -105,6 +105,7 @@ class Menu extends Component{
         this.updateWindowWidth();
         window.addEventListener('resize', this.updateWindowWidth);
         window.addEventListener('scroll',this.updateActiveSection);
+        this.updateMenuElements(this.state.sections);
     }
 
     componentWillUnmount() {
