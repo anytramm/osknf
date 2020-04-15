@@ -14,6 +14,7 @@ class Menu extends Component{
 
     state = {
         width: window.innerWidth,
+        menuElements: "",
         menuActive: false,
         buttonContent: this.openMenuButton,
         sections: [
@@ -28,67 +29,76 @@ class Menu extends Component{
 
     }
 
-    menuElements = this.state.sections.map(section => section.name==="" ? null : <MenuItem key={section.id} id={section.id} name={section.name} active={section.active}/>)
-
     webSections = this.state.sections.map(section=> <Section key={section.id} id={section.id} name={section.name} content={section.content} />)
 
-    handleMenuClick = e =>{
-        let buttonContent;
-        if(this.state.menuActive){
-            buttonContent = this.openMenuButton;
-        } else{
-            buttonContent = this.closeMenuButton;
-        }
+    closeMenu = () =>{
         this.setState({
-            menuActive: !this.state.menuActive,
-            buttonContent
+            menuActive: false,
+            buttonContent: this.openMenuButton
 
         })
     }
-    
 
+    openMenu = () => {
+        this.setState({
+            menuActive: true,
+            buttonContent: this.closeMenuButton
+
+        })
+    }
+
+    updateMenuElements = sections =>{
+        const menuElements = sections.map(section => section.name==="" ? null : <MenuItem key={section.id} id={section.id} name={section.name} click={this.closeMenu} active={section.active}/>)
+        this.setState({
+            menuElements
+        })
+    }
+
+    handleOpenOrCloseMenuClick = () =>{
+        if(this.state.menuActive){
+            this.closeMenu()
+        } else{
+            this.openMenu()
+        }
+    }
+    
     updateWindowWidth = () => {
         this.setState({ 
             width: window.innerWidth
         });
     }
-
     
     activeSectionId = this.state.sections.indexOf(section => section.active===true);
     
     updateActiveSection = e => {
-
-            // Active section ID
-            const activeSectionIdMin = Math.floor((document.documentElement.scrollTop/document.documentElement.clientHeight));
-            const activeSectionIdMax = Math.ceil((document.documentElement.scrollTop/document.documentElement.clientHeight));
-            if(this.activeSectionId === this.state.sections.length-1){
-                this.activeSectionId=Math.floor((document.documentElement.scrollTop/document.documentElement.clientHeight)+0.003418803418803);
-            }
-            else if(this.activeSectionId === 0){
-                this.activeSectionId=activeSectionIdMax;
-            }
-            else{
-                this.activeSectionId = this.activeSectionId===activeSectionIdMax ? activeSectionIdMin : activeSectionIdMax;
-            }
-            console.log(document.documentElement.scrollTop/document.documentElement.clientHeight)
+        //Scroll to section up or down
+        const activeSectionIdMin = Math.floor((document.documentElement.scrollTop/document.documentElement.clientHeight));
+        const activeSectionIdMax = Math.ceil((document.documentElement.scrollTop/document.documentElement.clientHeight));
+        if(this.activeSectionId === this.state.sections.length-1){
+            this.activeSectionId=Math.floor((document.documentElement.scrollTop/document.documentElement.clientHeight)+0.004);
+        }
+        else if(this.activeSectionId === 0){
+            this.activeSectionId=activeSectionIdMax;
+        }
+        else{
+            this.activeSectionId = this.activeSectionId===activeSectionIdMax ? activeSectionIdMin : activeSectionIdMax;
+        }
             
-            let sections = this.state.sections;
-            sections.forEach(section => {section.id === this.activeSectionId ? section.active=true : section.active=false});
+        //Update sections (which section is active now)
+        let sections = this.state.sections;
+        sections.forEach(section => {section.id === this.activeSectionId ? section.active=true : section.active=false});
 
-            //Update menuElements
-            this.menuElements = sections.map(section => section.name==="" ? null :<MenuItem key={section.id} id={section.id} name={section.name} active={section.active}/>);
+        //Update menuElements (which section is active now)
+        this.updateMenuElements(sections);
 
-            this.setState({
-                sections,
-                menuActive: false,
-                buttonContent: this.openMenuButton
-            })
+        this.setState({
+            sections,
+        })
 
-            // Scroll animation
-            if(this.state.sections.indexOf(section => section.active===true) !== this.activeSectionId){
-                window.scrollTo(0, this.activeSectionId*window.innerHeight);
-            }            
-
+        // Scroll to active section
+        if(this.state.sections.indexOf(section => section.active===true) !== this.activeSectionId){
+            window.scrollTo(0, this.activeSectionId*window.innerHeight);
+        }            
     }
 
     componentDidMount() {
@@ -109,7 +119,7 @@ class Menu extends Component{
                 <div className="nav-section">
                     <img src={logoKNF} alt="KNF"/>
                     <nav>
-                        {this.menuElements}
+                        {this.state.menuElements}
                     </nav>
                 </div>
                 {this.webSections}
@@ -119,10 +129,10 @@ class Menu extends Component{
             <div>
                 <div className="nav-section">
                     <img src={logoKNF} alt="KNF" />
-                    <div className="menu-button" onClick={this.handleMenuClick}>{this.state.buttonContent}</div>
-                    {this.state.menuActive ? <nav className="menu--active">{this.menuElements}</nav> : null}
+                    <div className="menu-button" onClick={this.handleOpenOrCloseMenuClick}>{this.state.buttonContent}</div>
+                    {this.state.menuActive ? <nav className="menu--active">{this.state.menuElements}</nav> : null}
                 </div>
-                {this.webSections}
+                {this.state.menuActive ? null: this.webSections}
             </div>
         )
     }
