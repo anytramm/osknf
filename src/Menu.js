@@ -6,6 +6,7 @@ import logoKNF from './images/logoKNF.jpg'
 import { IoIosMenu, IoIosClose } from "react-icons/io";
 import TitleContent from './TitleContent'
 import MainContent from './MainContent'
+import Guests from './Guests'
 
 class Menu extends Component{ 
 
@@ -19,7 +20,7 @@ class Menu extends Component{
         sections: [
             {id: 0 , name: "", content: <TitleContent />, active: true},
             {id: 1 , name: "XIX OSKNF", content: <MainContent />, active: false},
-            {id: 2 , name: "Goście specjalni", content: "", active: false},
+            {id: 2 , name: "Goście specjalni", content: <Guests />, active: false},
             {id: 3 , name: "Plan konferencji", content: "", active: false},
             {id: 4 , name: "Rejestracja", content: "", active: false},
             {id: 5 , name: "Patroni i sponsorzy", content: "", active: false},

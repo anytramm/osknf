@@ -1,0 +1,20 @@
+.guests__item{
+    padding: 10px 30px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.guests__item img{
+    width: 75%;
+    padding: 5vh;
+    height: auto;
+
+}
+
+.section-guests__guests{
+    justify-content: space-between;
+    align-items: center;
+}
