@@ -76,7 +76,7 @@ class Menu extends Component{
         const activeSectionIdMin = Math.floor((document.documentElement.scrollTop/document.documentElement.clientHeight));
         const activeSectionIdMax = Math.ceil((document.documentElement.scrollTop/document.documentElement.clientHeight));
         if(this.activeSectionId === this.state.sections.length-1){
-            this.activeSectionId=Math.floor((document.documentElement.scrollTop/document.documentElement.clientHeight)+0.004);
+            this.activeSectionId=Math.floor((document.documentElement.scrollTop/document.documentElement.clientHeight)+0.002);
         }
         else if(this.activeSectionId === 0){
             this.activeSectionId=activeSectionIdMax;
