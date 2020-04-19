@@ -116,7 +116,7 @@ class Menu extends Component{
       
 
     render(){
-        if(window.innerWidth > 1000) return(
+        if(window.innerWidth > 1100) return(
             <div>
                 <div className="nav-section">
                     <img src={logoKNF} alt="KNF"/>

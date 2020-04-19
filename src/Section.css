@@ -10,7 +10,6 @@ h3{
 }
 
 .section-content{
-    background-color: aqua;
     padding: 10vh 5vw;
 
     width: 100%;
@@ -34,4 +33,10 @@ h2{
 
 h1, h2{
     text-align: center;
+}
+
+@media (max-width: 1100px){
+    .section-content{
+        padding: 5vh 5vw;
+    }
 }
