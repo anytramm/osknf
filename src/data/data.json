@@ -1,0 +1,18 @@
+{
+    "mainText": "Jako Koło Naukowe Fizyków działające na Wydziale Fizyki Politechniki Warszawskiej mamy przyjemność zaprosić Doktorantów i Studentów na XIX edycję Ogólnopolskiej sSesji Kół Naukowych Fizyków, która odbędzie się na jesieni 2020 r. w Warszawie.",
+    "guests": [{
+        "name": "Jan Kowalski",
+        "subject": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ",
+        "image": "PeopleImg"
+    },
+    {
+        "name": "Jan Kowalski", 
+        "subject": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ", 
+        "image": "PeopleImg"
+    },
+    {
+        "name": "Jan Kowalski", 
+        "subject": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ", 
+        "image": "PeopleImg"
+    }]
+}

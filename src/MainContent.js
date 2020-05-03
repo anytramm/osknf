@@ -1,16 +1,11 @@
 import React from 'react'
-import './MainContent.css'
-import KNFphoto from './images/placeholder.png'
+import './style/MainContent.css'
 
-const MainContent = () => {
+const MainContent = (props) => {
     return(
         <main className="section-content section-main__main">
-            <p>
-                Jako Koło Naukowe Fizyków działające na Wydziale Fizyki Politechniki Warszawskiej
-                mamy przyjemność zaprosić Doktorantów i&nbsp;Studentów na XIX edycję Ogólnopolskiej 
-                Sesji Kół Naukowych Fizyków, która odbędzie się na jesieni 2020&nbsp;r. w&nbsp;Warszawie.
-            </p>
-            <img src={KNFphoto} alt="KNF PW"/>
+            <p>{props.text}</p>
+            <img src={props.img} alt="KNF PW"/>
         </main>
     )
 }

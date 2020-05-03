@@ -1,6 +1,5 @@
 import React from 'react';
-import PeopleImg from './images/person.jpg'
-import './Guests.css'
+import './style/Guests.css'
 
 const Guest = props =>{
     return(
@@ -13,13 +12,8 @@ const Guest = props =>{
 }
 
 
-const Guests = () => {
-    const guests = [
-        {name: "Jan Kowalski", subject: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ", image: PeopleImg},
-        {name: "Jan Kowalski", subject: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ", image: PeopleImg},
-        {name: "Jan Kowalski", subject: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ", image: PeopleImg}
-    ]
-    const guestsList = guests.map(guest => <Guest name={guest.name} subject={guest.subject} image={guest.image} />);
+const Guests = (props) => {
+    const guestsList = props.guests.map(guest => <Guest key={guest.id} name={guest.name} subject={guest.subject} image={guest.image} />);
     return (
         <div className="section-content section-guests__guests"> 
             {guestsList}

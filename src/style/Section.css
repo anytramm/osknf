@@ -6,6 +6,7 @@ section{
 /* SECTIONS */
 
 h3{
+    color: rgb(254,213,66);
     padding: 5vh 5vw 0 5vw;
     font-size: 1.5em;
 }
@@ -19,6 +20,10 @@ h3{
     display: flex;
 }
 
+p{
+    color: rgb(60,60,76);
+}
+
 
 
 /* SECTION 1 */
@@ -26,10 +31,12 @@ h3{
 h1{
     font-size: 2rem;
     padding: 5vh 5vw;
+    color: rgb(254,213,66);
 }
 
 h2{
     font-size: 2.25em;
+    color: rgb(60,60,76);
 }
 
 h1, h2{

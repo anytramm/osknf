@@ -1,5 +1,5 @@
 import React from 'react';
-import './Section.css'
+import './style/Section.css'
 
 const Section = props =>{
 
