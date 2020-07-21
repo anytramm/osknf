@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/osknf/static/css/main.da40ba64.chunk.css",
+    "main.js": "/osknf/static/js/main.619d31ff.chunk.js",
+    "main.js.map": "/osknf/static/js/main.619d31ff.chunk.js.map",
+    "runtime-main.js": "/osknf/static/js/runtime-main.212b0d42.js",
+    "runtime-main.js.map": "/osknf/static/js/runtime-main.212b0d42.js.map",
+    "static/js/2.c1f42c4a.chunk.js": "/osknf/static/js/2.c1f42c4a.chunk.js",
+    "static/js/2.c1f42c4a.chunk.js.map": "/osknf/static/js/2.c1f42c4a.chunk.js.map",
+    "index.html": "/osknf/index.html",
+    "precache-manifest.91ef8c4754406967075beca7c63eacb3.js": "/osknf/precache-manifest.91ef8c4754406967075beca7c63eacb3.js",
+    "service-worker.js": "/osknf/service-worker.js",
+    "static/css/main.da40ba64.chunk.css.map": "/osknf/static/css/main.da40ba64.chunk.css.map",
+    "static/js/2.c1f42c4a.chunk.js.LICENSE.txt": "/osknf/static/js/2.c1f42c4a.chunk.js.LICENSE.txt",
+    "static/media/person.jpg": "/osknf/static/media/person.f595c545.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.212b0d42.js",
+    "static/js/2.c1f42c4a.chunk.js",
+    "static/css/main.da40ba64.chunk.css",
+    "static/js/main.619d31ff.chunk.js"
+  ]
+}
