@@ -11,6 +11,7 @@
 
 .guests__item img{
     width: 75%;
+    max-width: 300px;
     padding: 5vh;
     height: auto;
 
@@ -28,9 +29,5 @@
 
     .guests__item{
         padding: 10px 5px;
-    }
-
-    .guests__item img{
-        display: none;
     }
 }

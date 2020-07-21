@@ -1,0 +1,49 @@
+ul.timetable {
+  display: flex;
+  list-style-type: none;
+	margin: 20px;
+	padding: 0;
+}
+
+ul.timetable li {
+  flex-grow: 1;
+  text-align: center;
+}
+
+ul.timetable li a {
+	text-decoration: none;
+  display: block;
+  width: 100%;
+	padding: 10px 0;
+	color: rgb(60, 60, 76);
+}
+
+ul.timetable li a:hover {
+	border-bottom: 0.75px solid rgb(150,95,119);
+  color: rgb(150,95,119);
+}
+
+ul.timetable li a.active {
+	font-weight: 700;
+	border-bottom: 0.75px solid rgb(60, 60, 76);
+}
+
+table{
+	margin: auto;
+	margin-top: 25px;
+	width: 80vw;
+	border-collapse: collapse;
+}
+
+th, td {
+	padding: 10px;
+	border: 1px solid rgba(180, 160, 170, 0.5);
+}
+
+tbody tr:nth-child(2n + 1){
+	background-color: rgba(180, 160, 170, 0.5);
+}
+
+tbody tr td:first-child {
+	width: 120px;
+}

@@ -6,6 +6,7 @@ import TitleContent from './TitleContent'
 import MainContent from './MainContent'
 import Guests from './Guests'
 import MoreInformationSoon from './MoreInformationSoon'
+import Timetable from './Timetable'
 
 import './style/App.css';
 
@@ -39,7 +40,7 @@ class App extends Component{
             {id: 0 , name: "", content: <TitleContent />, active: true},
             {id: 1 , name: "XIX OSKNF", content: <MainContent text={this.mainText} img={KNFphoto} />, active: false},
             {id: 2 , name: "Goście specjalni", content: <Guests guests={this.guests}/>, active: false},
-            {id: 3 , name: "Plan konferencji", content: <MoreInformationSoon />, active: false},
+            {id: 3 , name: "Plan konferencji", content: <Timetable />, active: false},
             {id: 4 , name: "Rejestracja", content: <MoreInformationSoon />, active: false},
             {id: 5 , name: "Patroni i sponsorzy", content: <MoreInformationSoon />, active: false},
             {id: 6 , name: "Kontakt", content: <MoreInformationSoon />, active: false}
@@ -79,37 +80,30 @@ class App extends Component{
     activeSectionId = this.state.sections.indexOf(section => section.active===true);
     
     updateActiveSection = e => {
-        //Scroll to section up or down
-        const activeSectionIdMin = Math.floor((document.documentElement.scrollTop/document.documentElement.clientHeight));
-        const activeSectionIdMax = Math.ceil((document.documentElement.scrollTop/document.documentElement.clientHeight));
-        if(this.activeSectionId === this.state.sections.length-1){
-            this.activeSectionId=Math.floor((document.documentElement.scrollTop/document.documentElement.clientHeight)+0.002);
-        }
-        else if(this.activeSectionId === 0){
-            this.activeSectionId=activeSectionIdMax;
-        }
-        else{
-            this.activeSectionId = this.activeSectionId===activeSectionIdMax ? activeSectionIdMin : activeSectionIdMax;
-        }
-            
-        //Update sections (which section is active now)
         let sections = this.state.sections;
-        sections.forEach(section => {section.id === this.activeSectionId ? section.active=true : section.active=false});
+        sections.map(section => section.active = false)
+        let windowSections = document.querySelectorAll('section');
+        let sectionsHeight = [0];
+        windowSections.forEach(section => sectionsHeight.push(section.scrollHeight + sectionsHeight[sectionsHeight.length - 1]));
+        // windowSections.map((section, index) => section = windowSections.slice(0,index).reduce((a,b) => a+b));
+        let windowHeight = document.documentElement.scrollTop + 0.9*window.innerHeight;
+        console.log(windowHeight)
+        console.log(sectionsHeight)
+        
+        for(let i=0 ; i < sectionsHeight.length - 1 ; i++){
+            if(windowHeight >= sectionsHeight[i] && windowHeight < sectionsHeight[i + 1]){
+                sections[i].active = true;
+                // console.log(i)
+            }
+        }
 
-
-        this.setState({
+        this.setState({ 
             sections,
-        })
-
-        // Scroll to active section
-        if(this.state.sections.indexOf(section => section.active===true) !== this.activeSectionId){
-            window.scrollTo(0, this.activeSectionId*window.innerHeight);
-        }            
+        });
     }
 
     componentDidMount() {
-
-        this.updateWindowWidth();
+        // this.updateWindowWidth();
         window.addEventListener('resize', this.updateWindowWidth);
         window.addEventListener('scroll',this.updateActiveSection);
     }
