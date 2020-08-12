@@ -1,6 +1,8 @@
 import React from 'react';
 import './style/Menu.css'
 
+//komentarz1
+
 const MenuItem = props =>{
     const {id, name, active, click} = props;
     if(active)  return <li key={id} className="menu-items__item menu-items__item--active"><a href={`#${id}`}>{name.toUpperCase()}</a></li>
